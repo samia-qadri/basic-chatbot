@@ -80,7 +80,7 @@ def bot_answer(user_input):
             print("I'm just a simple chat bot made of pyhton. \n   sssh! And secret is that I will be updated too")
             
         elif ("what can you do" in user_input or "what you can do" in user_input or "services" in user_input or "entertain me" in user_input or "how you work" in user_input):
-            print("I can tell you a joke, play number guessing game , rock paper scissor game or fact even can ask you riddle.")
+            print("I can tell you a joke,or fact, play number guessing game , rock paper scissor game even can ask you riddle.")
             
         elif ("tell me riddle" in user_input or "riddle" in user_input):
             key = random.choice(data["riddles"])
@@ -99,14 +99,14 @@ def bot_answer(user_input):
             rock_paper()
         
         else:
-            print("Sorry! I couldn't understand. \n I can tell you a joke, play number guessing game ,rock paper scissor game or fact even ask you riddle.\n What do you want?")
+            print("Sorry! I couldn't understand. \n I can tell you a joke or fact, play number guessing game ,rock paper scissor game or even ask you riddle.\n What do you want?")
             
     except Exception as e :
         print(e)
         
     return True
 
-# through while loop , code continues chat 
+# through while loop , chatbot continues chat 
 
 print("WELCOME TO BASIC CHAT BOT: ")   
 
