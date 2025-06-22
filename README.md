@@ -1,4 +1,4 @@
-Hello! This is me Samia Qadri
+Hello! This is me Samia Qadri.
 
 
 Here is my Python mini-project:  
@@ -18,7 +18,7 @@ Eliza was the first conversational chatbot built in the 1960s. It was rule-based
 
 →  Structure:
     main.py : which contains code , structured in functions form to keep it modular for future updates. 
-    json file for stroing jokes,riddles and facts
+    json file for storing jokes,riddles and facts.
 
 📌 Notes
 > This chatbot does not use AI or machine learning models — it's based entirely on conditional logic and sentiment polarity via TextBlob.
