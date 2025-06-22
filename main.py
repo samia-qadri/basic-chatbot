@@ -2,6 +2,7 @@
 import os
 import json
 import random
+from textblob import TextBlob
 
 current_dir=os.path.dirname(__file__)
 file_path= os.path.join(current_dir,"features.json")
@@ -11,6 +12,21 @@ try:
         data=json.load(file)
 except Exception as e:
     print(e)
+    
+    # This function detects mood and suggest activity    
+def detect_mood(mood):
+    try:
+        blob = TextBlob(mood)   
+        polarity= blob.sentiment.polarity
+        if polarity> 0.3:
+            return "positive"
+        elif polarity < -0.3:
+            return "negative"
+        else:
+            return "neutral"
+    except Exception as e:
+        print("Mood detection error:", e)
+        return "neutral"  
     
     # this function is for basic guess the number game.
 def guess_num():
@@ -54,9 +70,6 @@ def bot_answer(user_input):
         elif ("bye" in user_input or "good bye" in user_input or "okay, talk you later" in user_input ):
             print("Bot: Okay , Bye! Take care")
             return False
-        
-        elif ("fine" in user_input or "okay" in user_input or "good" in user_input or "great" in user_input ):
-            print("Bot : Great to know ! How can I help you ?")
             
         elif (" tell a joke" in user_input or "joke" in user_input ):
                 print ("Bot : ", random.choice(data["jokes"]))
@@ -67,7 +80,7 @@ def bot_answer(user_input):
         elif ("wow" in user_input or "hurrah" in user_input  or "haha" in user_input or "good one" in user_input):
             print("Haha! ")
             
-        elif ("really"in user_input or "oh okay" in user_input or "oh" in user_input):
+        elif ("really"in user_input or "oh okay" in user_input or "oh" in user_input or "okay" in user_input or "ok" in user_input):
             print("Yes!")
         
         elif ("ugh" in user_input or "ahh" in user_input or "argh" in user_input or"urgh" in user_input or "uff" in user_input or "annoying" in user_input or "tired" in user_input):
@@ -77,7 +90,7 @@ def bot_answer(user_input):
             print("Thanks! You are awesome and gentle. ")
             
         elif("who are you" in user_input or "what are you" in user_input or "your name" in user_input or "how are you" in user_input):
-            print("I'm just a simple chat bot made of pyhton. \n   sssh! And secret is that I will be updated too")
+            print("I'm just a simple chat bot made of python. \n   sssh! And secret is that I will be updated too")
             
         elif ("what can you do" in user_input or "what you can do" in user_input or "services" in user_input or "entertain me" in user_input or "how you work" in user_input):
             print("I can tell you a joke,or fact, play number guessing game , rock paper scissor game even can ask you riddle.")
@@ -106,10 +119,28 @@ def bot_answer(user_input):
         
     return True
 
-# through while loop , chatbot continues chat 
 
 print("WELCOME TO BASIC CHAT BOT: ")   
+#This will greet and detect mood of user
+print("Hi! How are you? ")
 
+mood = input("you: ").lower().strip()
+
+result=detect_mood(mood)
+
+if result=="positive":
+    print("BOT : Oh great ! So let's chat.")
+    print("\n Suggestion: you can watch movie , read book or go for outing to keep feeling happy ! ")
+elif result =="negative":
+    print("Oh! you sound low. How can I help you? Do you want to hear a joke or play a game? ")
+    print("Suggestion:  you can have a talk with your friend to cheer your mood or go for walk or movie.")
+else:
+    print("Bot: Got it. I'm here to help or entertain you.")
+    print("Suggestion:  you can have a talk with your friend , go for walk or movie, read book or go for outing to cheer your mood .")
+    
+
+# through while loop , chatbot continues chat 
+    
 while True:
     user_input=input("You : ").lower()
     cont=bot_answer(user_input)
