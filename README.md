@@ -1,5 +1,7 @@
 Hello! This is me Samia Qadri
-Python mini-project:  
+
+
+Here is my Python mini-project:  
   "Basic Python Chat Bot"
 
 This is a simple Python-based basic chatbot inspired by ELIZA
