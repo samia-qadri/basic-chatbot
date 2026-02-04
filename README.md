@@ -4,7 +4,7 @@ Hello! This is me Samia Qadri.
 Here is my Python mini-project:  
   "Basic Python Chat Bot"
 
-This is a simple Python-based basic chatbot inspired by ELIZA
+This is a simple Python-based basic chatbot inspired by ELIZA. It doesnot use any built-in library or API, it is a simple version with limited option.
 Eliza was the first conversational chatbot built in the 1960s. It was rule-based, modular, and built purely with basic Python logic (no external AI or machine learning models).
 
 → My chat-bot features:
